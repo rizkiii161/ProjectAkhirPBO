@@ -6,30 +6,16 @@ package Model;
 
 import java.time.LocalDate;
 
-
 /**
  *
  * @author Rizki
  */
-public class ModelTodos {
+public class ModelSubTasks {
     private Integer id;
     private String title, description;
     private boolean isDone;
-    private LocalDate createdAt, dueAt;
-    
 
-    public void setcreatedAt(LocalDate createdAt){
-        this.createdAt = createdAt;
-    }
-    public LocalDate getcreatedteAt(){
-        return this.createdAt ;
-    }
-    public void setDueAt(LocalDate dueAt){
-        this.dueAt = dueAt;
-    }
-    public LocalDate getDueAt(){
-        return this.dueAt ; 
-    }
+ 
     
     public void setIsDone(boolean isDone){
     this.isDone = isDone;
@@ -59,7 +45,9 @@ public class ModelTodos {
     public Integer getId(){
         return this.id ; 
     }
-    
+
+
+
     
     
 }
