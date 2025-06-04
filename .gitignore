@@ -1,0 +1,6 @@
+# Abaikan hasil kompilasi Java
+*.class
+build/
+
+# Abaikan konfigurasi lokal NetBeans
+nbproject/private/
