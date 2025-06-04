@@ -69,29 +69,57 @@ public class SubTasksDao {
         }
     }
 
-    public List<ModelSubTasks> getAll() {
-        List<ModelSubTasks> subTasks =  null;
+//    public List<ModelSubTasks> getAll() {
+//        List<ModelSubTasks> subTasks = null;
+//        try {
+//            subTasks = new ArrayList<>();
+//            Statement statement = Connector.connect().createStatement();
+//            String query = "SELECT * FROM subtasks";
+//            ResultSet resultSet = statement.executeQuery(query);
+//
+//            while (resultSet.next()) {
+//                ModelSubTasks subTask = new ModelSubTasks();
+//                subTask.setId(resultSet.getInt("id"));
+//                subTask.setTitle(resultSet.getString("title"));
+//                subTask.setDescription(resultSet.getString("keterangan"));
+//                subTask.setIsDone(resultSet.getBoolean("is_done"));
+//                subTasks.add(subTask);
+//            }
+//            resultSet.close();
+//
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//        return subTasks;
+//    }
+    
+    public List<ModelSubTasks> getByToDoId(int todoId) {
+        List<ModelSubTasks> subTasks = new ArrayList<>();
         try {
-            subTasks = new ArrayList<>();
-            Statement statement = Connector.connect().createStatement();
-            String query = "SELECT * FROM subtasks";
-            ResultSet resultSet = statement.executeQuery(query);
-
+            String query = "SELECT * FROM subtasks WHERE todo_id = ?";
+            PreparedStatement statement = Connector.connect().prepareStatement(query);
+            statement.setInt(1, todoId);
+    
+            ResultSet resultSet = statement.executeQuery();
+    
             while (resultSet.next()) {
                 ModelSubTasks subTask = new ModelSubTasks();
                 subTask.setId(resultSet.getInt("id"));
+                subTask.setToDoId(resultSet.getInt("todo_id"));
                 subTask.setTitle(resultSet.getString("title"));
                 subTask.setDescription(resultSet.getString("keterangan"));
                 subTask.setIsDone(resultSet.getBoolean("is_done"));
                 subTasks.add(subTask);
             }
+    
             resultSet.close();
-
+            statement.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         return subTasks;
     }
+    
 
 
 
