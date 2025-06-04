@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Jun 2025 pada 18.36
+-- Waktu pembuatan: 04 Jun 2025 pada 05.55
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -42,7 +42,8 @@ CREATE TABLE `subtasks` (
   `id` int(11) NOT NULL,
   `title` varchar(200) NOT NULL,
   `keterangan` text NOT NULL,
-  `is_done` tinyint(1) NOT NULL
+  `is_done` tinyint(1) NOT NULL,
+  `todo_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -57,7 +58,8 @@ CREATE TABLE `todos` (
   `description` text NOT NULL,
   `is_done` tinyint(1) NOT NULL,
   `crreated_at` datetime NOT NULL,
-  `due_at` datetime NOT NULL
+  `due_at` datetime NOT NULL,
+  `category_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -74,13 +76,15 @@ ALTER TABLE `categories`
 -- Indeks untuk tabel `subtasks`
 --
 ALTER TABLE `subtasks`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_todos` (`todo_id`);
 
 --
 -- Indeks untuk tabel `todos`
 --
 ALTER TABLE `todos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_category` (`category_id`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -103,6 +107,22 @@ ALTER TABLE `subtasks`
 --
 ALTER TABLE `todos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `subtasks`
+--
+ALTER TABLE `subtasks`
+  ADD CONSTRAINT `fk_todos` FOREIGN KEY (`todo_id`) REFERENCES `todos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `todos`
+--
+ALTER TABLE `todos`
+  ADD CONSTRAINT `fk_category` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
