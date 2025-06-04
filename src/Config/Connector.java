@@ -14,9 +14,9 @@ public class Connector {
     
     
     private static String jdbcDriver = "com.mysql.cj.jdbc.Driver";
-    private static String namaDb = "library_db";
+    private static String namaDb = "todo";
     private static String urlDb = "jdbc:mysql://localhost:3306/" + namaDb;
-    private static String usernameDb = "todo";
+    private static String usernameDb = "root";
     private static String passwordDb = "";
     
     static Connection conn;
