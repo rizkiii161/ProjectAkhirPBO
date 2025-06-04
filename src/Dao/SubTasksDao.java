@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.*;
 
 public class SubTasksDao {
 
@@ -68,9 +68,10 @@ public class SubTasksDao {
         }
     }
 
-    public ArrayList<ModelSubTasks> getAll() {
-        ArrayList<ModelSubTasks> subTasks = new ArrayList<>();
+    public List<ModelSubTasks> getAll() {
+        List<ModelSubTasks> subTasks =  null;
         try {
+            subTasks = new ArrayList<>();
             Statement statement = Connector.connect().createStatement();
             String query = "SELECT * FROM subtasks";
             ResultSet resultSet = statement.executeQuery(query);
