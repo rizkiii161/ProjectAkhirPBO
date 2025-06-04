@@ -11,9 +11,12 @@ import java.time.LocalDate;
  * @author Rizki
  */
 public class ModelSubTasks {
-    private Integer id;
+    private Integer id,toDoId;
     private String title, description;
     private boolean isDone;
+    
+//    public ModelSubTasks(){
+//    }
 
  
     
@@ -44,6 +47,13 @@ public class ModelSubTasks {
     
     public Integer getId(){
         return this.id ; 
+    }
+    public void setToDoId(Integer toDoId){
+    this.toDoId = toDoId;
+    }
+    
+    public Integer getToDoId(){
+        return this.toDoId ; 
     }
 
 
