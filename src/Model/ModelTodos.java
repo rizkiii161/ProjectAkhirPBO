@@ -8,7 +8,8 @@ import java.time.LocalDateTime;
 
 public class ModelTodos {
     private Integer id;
-    private Integer category_id;
+    private Integer category_id; // Foreign Key
+    private String name_category; // Data table categories
     private String title;
     private String description;
     private boolean isDone;
@@ -29,6 +30,14 @@ public class ModelTodos {
     
     public void setCategoryId(int categoryId) { // Foreign Key
         this.category_id = categoryId;
+    }
+    
+    public String getCategoryName() {
+        return name_category;
+    }
+
+    public void setCategoryName(String name_category) {
+        this.name_category = name_category;
     }
     
     public String getTitle() {
