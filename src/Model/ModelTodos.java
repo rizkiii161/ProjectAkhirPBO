@@ -4,62 +4,70 @@
  */
 package Model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-
-/**
- *
- * @author Rizki
- */
 public class ModelTodos {
     private Integer id;
-    private String title, description;
+    private Integer category_id;
+    private String title;
+    private String description;
     private boolean isDone;
-    private LocalDate createdAt, dueAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime dueAt;
     
-
-    public void setcreatedAt(LocalDate createdAt){
+    public int getId() {
+        return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public int getCategoryId() { // Foreign Key
+        return category_id;
+    }
+    
+    public void setCategoryId(int categoryId) { // Foreign Key
+        this.category_id = categoryId;
+    }
+    
+    public String getTitle() {
+        return title;
+    }
+    
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
+    
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    public boolean isDone() {
+        return isDone;
+    }
+    
+    public void setDone(boolean isDone) {
+        this.isDone = isDone;
+    }
+    
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+    
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
-    public LocalDate getcreatedteAt(){
-        return this.createdAt ;
+    
+    public LocalDateTime getDueAt() {
+        return dueAt;
     }
-    public void setDueAt(LocalDate dueAt){
+    
+    public void setDueAt(LocalDateTime dueAt) {
         this.dueAt = dueAt;
     }
-    public LocalDate getDueAt(){
-        return this.dueAt ; 
-    }
-    
-    public void setIsDone(boolean isDone){
-    this.isDone = isDone;
-    }
-    
-    public boolean getIsDone(){
-        return this.isDone ; 
-    }
-    public void setTitle(String title){
-    this.title = title;
-    }
-    
-    public String getTitle(){
-        return this.title ; 
-    }
-    public void setDescription(String description){
-    this.description = description;
-    }
-    
-    public String getDescription(){
-        return this.description ; 
-    }
-    public void setId(Integer id){
-    this.id = id;
-    }
-    
-    public Integer getId(){
-        return this.id ; 
-    }
-    
-    
-    
 }

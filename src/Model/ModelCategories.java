@@ -4,30 +4,23 @@
  */
 package Model;
 
-/**
- *
- * @author Rizki
- */
 public class ModelCategories {
-        private Integer id;
-        private String category;
+    private int id;
+    private String nameCategory;
 
-        
-        
-    public void setId(Integer id){
-    this.id = id;
-    }
-    
-    public Integer getId(){
-        return this.id ; 
-    }
-    public void setCategory(String category){
-    this.category = category;
-    }
-    
-    public String getCategory(){
-        return this.category ; 
+    public int getId() {
+        return id;
     }
 
-    
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNameCategory() {
+        return nameCategory;
+    }
+
+    public void setNameCategory(String nameCategory) {
+        this.nameCategory = nameCategory;
+    }
 }
