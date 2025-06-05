@@ -1,10 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Model;
-
-import java.time.LocalDateTime;
 
 public class ModelTodos {
     private Integer id;
@@ -13,22 +7,22 @@ public class ModelTodos {
     private String title;
     private String description;
     private boolean isDone;
-    private LocalDateTime createdAt;
-    private LocalDateTime dueAt;
+    private String createdAt;  // diubah jadi String
+    private String dueAt;      // diubah jadi String
     
-    public int getId() {
+    public Integer getId() {
         return id;
     }
     
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     
-    public int getCategoryId() { // Foreign Key
+    public Integer getCategoryId() {
         return category_id;
     }
     
-    public void setCategoryId(int categoryId) { // Foreign Key
+    public void setCategoryId(Integer categoryId) {
         this.category_id = categoryId;
     }
     
@@ -64,19 +58,19 @@ public class ModelTodos {
         this.isDone = isDone;
     }
     
-    public LocalDateTime getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
     
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
     
-    public LocalDateTime getDueAt() {
+    public String getDueAt() {
         return dueAt;
     }
     
-    public void setDueAt(LocalDateTime dueAt) {
+    public void setDueAt(String dueAt) {
         this.dueAt = dueAt;
     }
 }

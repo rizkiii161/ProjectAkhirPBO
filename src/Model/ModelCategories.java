@@ -23,4 +23,9 @@ public class ModelCategories {
     public void setNameCategory(String nameCategory) {
         this.nameCategory = nameCategory;
     }
+    
+    @Override
+    public String toString() {
+        return nameCategory; // tampilkan nama saja
+    }
 }

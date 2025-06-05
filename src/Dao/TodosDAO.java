@@ -19,8 +19,8 @@ public class TodosDAO {
             stmt.setString(2, todo.getDescription());
             stmt.setBoolean(3, todo.isDone());
             stmt.setInt(4, todo.getCategoryId());
-            stmt.setTimestamp(5, Timestamp.valueOf(todo.getCreatedAt()));
-            stmt.setTimestamp(6, Timestamp.valueOf(todo.getDueAt()));
+            stmt.setString(5, todo.getCreatedAt());
+            stmt.setString(6, todo.getDueAt());
             
             stmt.executeUpdate();
             stmt.close();
@@ -46,8 +46,8 @@ public class TodosDAO {
                 todo.setDone(rs.getBoolean("is_done"));
                 todo.setCategoryId(rs.getInt("category_id"));
                 todo.setCategoryName(rs.getString("name_category")); 
-                todo.setCreatedAt(rs.getTimestamp("created_at").toLocalDateTime());
-                todo.setDueAt(rs.getTimestamp("due_at").toLocalDateTime());
+                todo.setCreatedAt(rs.getString("created_at"));
+                todo.setDueAt(rs.getString("due_at"));
                 listTodos.add(todo);
             }
 
@@ -77,8 +77,8 @@ public class TodosDAO {
                 todo.setDone(rs.getBoolean("is_done"));
                 todo.setCategoryId(rs.getInt("category_id"));
                 todo.setCategoryName(rs.getString("name_category"));
-                todo.setCreatedAt(rs.getTimestamp("created_at").toLocalDateTime());
-                todo.setDueAt(rs.getTimestamp("due_at").toLocalDateTime());
+                todo.setCreatedAt(rs.getString("created_at"));
+                todo.setDueAt(rs.getString("due_at"));
             }
             
             stmt.close();
@@ -99,7 +99,7 @@ public class TodosDAO {
             stmt.setString(2, todo.getDescription());
             stmt.setBoolean(3, todo.isDone());
             stmt.setInt(4, todo.getCategoryId()); 
-            stmt.setTimestamp(6, Timestamp.valueOf(todo.getDueAt()));
+            stmt.setString(5, todo.getDueAt());
             stmt.setInt(6, todo.getId());
             
             stmt.executeUpdate();
